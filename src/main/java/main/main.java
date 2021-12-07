@@ -17,11 +17,8 @@ public class main {
 
         String [][] test = to2DArray(data);
 
-        for (int i = 0; i < test.length; i++) {
-            for (int i1 = 0; i1 < test[i].length ; i1++) {
-                System.out.print(test[i][i1]+" ");
-            }
-            System.out.println();
+        for (String[] strings : test) {
+            System.out.println(strings[0]);
         }
 
 

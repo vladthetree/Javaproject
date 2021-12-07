@@ -54,6 +54,8 @@ public class CSV_Reader {
         return split;
     }
 
+    //TODO DIe [ Zeichen wegbekommen
+
 
 }
 
