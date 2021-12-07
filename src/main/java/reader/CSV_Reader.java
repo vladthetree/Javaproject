@@ -23,39 +23,33 @@ public class CSV_Reader {
         return readerList;
     }
 
-    public static String[][] to2DArray(List<String[]> data) {
-        String[][] doubleArray = getSizeOf2dArray(data);
-
-        for (int i = 0; i < data.size(); i++) {
-            String[] strings = data.get(i);
-            covertOneDtoTwoD(strings, doubleArray, i);
-        }
+    public static String[][] arrayListTo2dArray(List<String[]> arrayList) {
+        String[][] doubleArray = getSizeOf2dArray(arrayList);
+        adjust1dArrayto2dArray(arrayList, doubleArray);
         return doubleArray;
+    }
+
+    private static void adjust1dArrayto2dArray(List<String[]> data, String[][] doubleArray) {
+        for (int i = 0; i < data.size(); i++) {
+            String[] strings = deleteBracketsinside1DArray(data.get(i), ";");
+            for (int k = 0; k < strings.length; k++) {
+                doubleArray[i][k] = strings[k];
+            }
+        }
     }
 
     private static String[][] getSizeOf2dArray(List<String[]> data) {
         int length = Arrays.toString(data.get(0)).split(";").length;
-        String[][] doubleArray = new String[data.size()][length];
-        return doubleArray;
+        return new String[data.size()][length];
     }
 
-    public static String[][] covertOneDtoTwoD(String[] array, String[][] twoD, int line) {
-        String[] strings = extractValueAndCreateNew1dArray(array,";");
 
-        for (int i = 0; i < twoD[line].length; i++) {
-            twoD[line][i] = strings[i];
-        }
-        return twoD;
-    }
-
-    private static String[] extractValueAndCreateNew1dArray(String[] array, String delimiter) {
+    private static String[] deleteBracketsinside1DArray(String[] array, String delimeter) {
         String s = Arrays.toString(array);
-        String[] split = s.split(delimiter);
-        return split;
+        String s1 = s.replaceAll("\\[", "");
+        String s2 = s1.replaceAll("]", "");
+        return s2.split(delimeter);
     }
-
-    //TODO DIe [ Zeichen wegbekommen
 
 
 }
-
