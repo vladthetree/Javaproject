@@ -20,6 +20,7 @@ public class Datacolumns {
         String[][] strings = arrayListTo2dArray(arrayList);
         String[] row = new String[strings[rowNumber].length];
 
+
         for (int x = 0; x < strings[rowNumber].length; x++) {
             row[x] = strings[rowNumber][x];
         }
