@@ -8,6 +8,17 @@ import java.util.List;
 
 public class CSV_Reader {
 
+    public static void printCSV(List<String[]> arrayList) {
+        String[][] to2dArray = arrayListTo2dArray(arrayList);
+        for (String[] strings : to2dArray) {
+            for (String string : strings) {
+                System.out.print(string + " ");
+            }
+            System.out.println();
+        }
+
+    }
+
     public static List<String[]> csvToArrayList(Reader reader) throws IOException {
         CSVReader read = new CSVReader(reader);
 
@@ -31,7 +42,7 @@ public class CSV_Reader {
 
     private static void adjust1dArrayto2dArray(List<String[]> data, String[][] doubleArray) {
         for (int i = 0; i < data.size(); i++) {
-            String[] strings = deleteBracketsinside1DArray(data.get(i), ";");
+            String[] strings = deleteBracketsinside1DArray(data.get(i));
             for (int k = 0; k < strings.length; k++) {
                 doubleArray[i][k] = strings[k];
             }
@@ -44,11 +55,11 @@ public class CSV_Reader {
     }
 
 
-    private static String[] deleteBracketsinside1DArray(String[] array, String delimeter) {
+    private static String[] deleteBracketsinside1DArray(String[] array) {
         String s = Arrays.toString(array);
         String s1 = s.replaceAll("\\[", "");
         String s2 = s1.replaceAll("]", "");
-        return s2.split(delimeter);
+        return s2.split(";");
     }
 
 
