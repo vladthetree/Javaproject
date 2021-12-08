@@ -1,18 +1,18 @@
-package reader;
+package csv_Methodes;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-import static reader.CSV_Reader.arrayListTo2dArray;
+import static csv_Methodes.CSV_Reader.arrayListTo2dArray;
 
 public class Datacolumn {
 
 
     public static String[] getSingleCSVDataColumns(List<String[]> arrayList, int columnNumber) {
         if (columnNumber < 0) {
-            throw new ArithmeticException("getSingleCSVRow : columnNumber is smaller then 0");
+            throw new ArithmeticException("getSingleCSVDataColumns : columnNumber is smaller then 0");
         }
         String[][] listTo2dArray = arrayListTo2dArray(arrayList);
         String[] column = new String[listTo2dArray.length];

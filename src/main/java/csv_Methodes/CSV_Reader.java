@@ -1,4 +1,4 @@
-package reader;
+package csv_Methodes;
 
 import au.com.bytecode.opencsv.CSVReader;
 
@@ -10,9 +10,9 @@ public class CSV_Reader {
 
     public static void printCSV(List<String[]> arrayList) {
         String[][] to2dArray = arrayListTo2dArray(arrayList);
-        for (String[] strings : to2dArray) {
-            for (String string : strings) {
-                System.out.print(string + " ");
+        for (String[] row : to2dArray) {
+            for (String rowValue : row) {
+                System.out.print(rowValue + " ");
             }
             System.out.println();
         }

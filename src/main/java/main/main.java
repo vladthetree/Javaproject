@@ -5,9 +5,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.List;
 
-import static reader.CSV_Reader.*;
-import static reader.Datacolumn.getSingleCSVDataColumns;
-import static reader.Datacolumn.getSingleCSVRow;
+import static csv_Methodes.CSV_Reader.*;
 
 
 public class main {
