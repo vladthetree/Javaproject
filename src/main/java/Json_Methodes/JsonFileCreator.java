@@ -8,52 +8,41 @@ import java.io.PrintWriter;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+// LinkedHashmap :
+//        + Maintains insertionorder
+//        - Not Threadsafe -> inconsistenz value
+//         */
 public class JsonFileCreator {
 
-    public static void main(String[] args) throws FileNotFoundException
-    {
-        // creating JSONObject
+    public static void main(String[] args) throws FileNotFoundException {
+
         JSONObject jsonObject = new JSONObject();
-
-        // putting data to JSONObject
-        jsonObject.put("asOfDate", "99.99.999");
-        /*
-        LinkedHashmap :
-        + Maintains insertionorder
-        - Not Threadsafe -> inconsistenz value
-         */
-        Map linkedHashMap = new LinkedHashMap(2);
-        linkedHashMap.put("name", "Company B");
-        linkedHashMap.put("value",12.5);
-
-
-        jsonObject.put("SomeValue", linkedHashMap);
-
-        // for phone numbers, first create JSONArray
-        JSONArray jsonArray = new JSONArray();
-
-        linkedHashMap = new LinkedHashMap(2);
-        linkedHashMap.put("name", "Company Alpha");
-        linkedHashMap.put("value", 12.909);
-
-        // adding map to list
-        jsonArray.add(linkedHashMap);
-
-        linkedHashMap = new LinkedHashMap(2);
-        linkedHashMap.put("name", "Company Betha");
-        linkedHashMap.put("value", 0.01);
-
-        // adding map to list
-        jsonArray.add(linkedHashMap);
-
-        // putting phoneNumbers to JSONObject
-        jsonObject.put("Companys", jsonArray);
-
-        // writing JSON to file:"JSONExample.json" in cwd
+        createJsonObjects(jsonObject,"Dach",5);
         PrintWriter pw = new PrintWriter("G:\\Workload\\JSONExample.json");
         pw.write(jsonObject.toJSONString());
 
         pw.flush();
         pw.close();
     }
+
+    private static JSONObject createJsonObjects(JSONObject jsonObject, String suffix, int amount) {
+        Map<String, String> linkedHashMap = new LinkedHashMap<>(amount);
+
+
+        for (int i = 0; i < amount; i++) {
+            linkedHashMap.put("name_"+i+"_" + suffix, "value_"+i+"_"+suffix); // i wird iteriert weil, lHashmap unique ist
+        }
+        JSONArray jsonArray = new JSONArray();
+        jsonArray.add(linkedHashMap);
+        jsonObject.put(suffix, jsonArray);
+
+        return jsonObject;
+    }
+
+    private static void Json(int amounOfObjects){
+
+
+    }
+
+
 }
