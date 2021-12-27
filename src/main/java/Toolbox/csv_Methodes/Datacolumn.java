@@ -4,8 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
+import static Toolbox.arrayConverter.SimpleArray.arrayListTo2dArray;
 
-import static Toolbox.csv_Methodes.CsvMethods.arrayListTo2dArray;
 
 public class Datacolumn {
 

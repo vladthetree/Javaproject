@@ -2,11 +2,16 @@ package Toolbox.csv_Methodes;
 
 import au.com.bytecode.opencsv.CSVReader;
 
-import java.io.*;
-import java.util.Arrays;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
 import java.util.List;
 
-public class CsvMethods {
+import static Toolbox.arrayConverter.SimpleArray.arrayListTo2dArray;
+import static Toolbox.print.PrinterFactory.deleteBracketsInside1dArray;
+
+public class CsvConverter {
 
     public static Reader getPathReader(String path) {
         Reader reader = null;
@@ -50,13 +55,7 @@ public class CsvMethods {
         return arrayListTo2dArray(strings);
     }
 
-    public static String[][] arrayListTo2dArray(List<String[]> arrayList) {
-        String[][] doubleArray = getSizeOf2dArray(arrayList);
-        adjust1dArrayto2dArray(arrayList, doubleArray);
-        return doubleArray;
-    }
-
-    private static void adjust1dArrayto2dArray(List<String[]> data, String[][] doubleArray) {
+    protected static void adjustCsvStringList(List<String[]> data, String[][] doubleArray) {
         for (int i = 0; i < data.size(); i++) {
             String[] strings = deleteBracketsInside1dArray(data.get(i));
             for (int k = 0; k < strings.length; k++) {
@@ -64,34 +63,4 @@ public class CsvMethods {
             }
         }
     }
-
-    private static String[][] getSizeOf2dArray(List<String[]> data) {
-        int length = Arrays.toString(data.get(0)).split(";").length;
-        return new String[data.size()][length];
-    }
-
-
-    private static String[] deleteBracketsInside1dArray(String[] array) {
-        String s = Arrays.toString(array);
-        String s1 = s.replaceAll("\\[", "");
-        String s2 = s1.replaceAll("]", "");
-        return s2.split(";");
-    }
-
-    public static void printStringArrayList(List<String[]> arrayList) {
-        String[][] to2dArray = arrayListTo2dArray(arrayList);
-        for (String[] row : to2dArray) {
-            for (String rowValue : row) {
-                System.out.print(rowValue + " ");
-            }
-            System.out.println();
-        }
-    }
-
-    public static void printCSV(String path){
-        List<String[]> strings = csvToStringArrayList(path);
-        printStringArrayList(strings);
-    }
-
-
 }

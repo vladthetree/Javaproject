@@ -1,4 +1,4 @@
-package Toolbox.Json_Methodes;
+package Toolbox.json_Methodes;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
