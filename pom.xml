@@ -6,6 +6,8 @@
     <groupId>groupId</groupId>
     <artifactId>Javaproject</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <!--Dependencies-->
     <dependencies>
         <dependency>
             <groupId>net.sf.opencsv</groupId>
@@ -13,13 +15,22 @@
             <version>2.3</version>
         </dependency>
         <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>6.18.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongodb-driver</artifactId>
+            <version>3.12.10</version>
+        </dependency>
+        <dependency>
             <groupId>com.googlecode.json-simple</groupId>
             <artifactId>json-simple</artifactId>
             <version>1.1.1</version>
         </dependency>
     </dependencies>
-
-
+    
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>

@@ -8,5 +8,12 @@
       <jdbc-url>mongodb+srv://cluster0.9fdym.mongodb.net/test?authSource=admin&amp;replicaSet=atlas-frts2s-shard-0&amp;readPreference=primary&amp;appname=MongoDB%20Compass&amp;ssl=true</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="PG" uuid="d674f632-dcc5-41d0-8b32-74397496b311">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
