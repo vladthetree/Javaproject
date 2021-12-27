@@ -10,8 +10,8 @@ import static Toolbox.csv_Methodes.CSV_Reader.*;
 
 public class main {
 
-    public static void main(String[] args) throws IOException {
-        String path = "G://sample.csv";
+    public static void main(String[] args){
+        String path = "C://Users//vlady//Documents//TestFiles//A//TextCSV.csv";
         Reader reader = new FileReader(path);
 
         List<String[]> arrayList = csvToArrayList(reader);

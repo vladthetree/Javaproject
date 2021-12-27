@@ -8,6 +8,18 @@ import java.util.List;
 
 public class CSV_Reader {
 
+
+
+    public static Reader getFile(String path){
+        Reader reader = null;
+        try {
+            reader = new FileReader(path);
+        } catch (FileNotFoundException e) {
+            System.out.println("CSV_Reader -> getFile - File could not be found. Path "+path+" is not right."+e);
+        }
+        return reader;
+    }
+
     public static void printCSV(List<String[]> arrayList) {
         String[][] to2dArray = arrayListTo2dArray(arrayList);
         for (String[] row : to2dArray) {
@@ -19,7 +31,7 @@ public class CSV_Reader {
 
     }
 
-    public static List<String[]> csvToArrayList(Reader reader) throws IOException {
+    public static List<String[]> csvToArrayList(Reader reader){
         CSVReader read = new CSVReader(reader);
 
         List<String[]> readerList = null;
@@ -29,8 +41,13 @@ public class CSV_Reader {
             e.printStackTrace();
         }
 
-        reader.close();
-        read.close();
+        try {
+            reader.close();
+            read.close();
+        } catch (IOException e) {
+            System.out.println("CSV_Reader -> csvToArrayList - CSVReader could not be closed."+e);
+        }
+
         return readerList;
     }
 
