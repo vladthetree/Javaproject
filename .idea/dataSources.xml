@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="postgres@localhost" uuid="9b7dcef8-8ada-4486-9228-2f7576a63771">
-      <driver-ref>postgresql</driver-ref>
+    <data-source source="LOCAL" name="Mongo" uuid="94862986-3765-4f71-be40-dd0490f1f7f5">
+      <driver-ref>mongo</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
+      <jdbc-driver>com.dbschema.MongoJdbcDriver</jdbc-driver>
+      <jdbc-url>mongodb+srv://cluster0.9fdym.mongodb.net/test?authSource=admin&amp;replicaSet=atlas-frts2s-shard-0&amp;readPreference=primary&amp;appname=MongoDB%20Compass&amp;ssl=true</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
