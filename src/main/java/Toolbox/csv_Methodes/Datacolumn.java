@@ -1,11 +1,11 @@
-package csv_Methodes;
+package Toolbox.csv_Methodes;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-import static csv_Methodes.CSV_Reader.arrayListTo2dArray;
+import static Toolbox.csv_Methodes.CSV_Reader.arrayListTo2dArray;
 
 public class Datacolumn {
 
