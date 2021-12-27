@@ -1,11 +1,11 @@
 package Toolbox.arrayConverter;
 
-import Toolbox.csv_Methodes.CsvConverter;
-
 import java.util.Arrays;
 import java.util.List;
 
-public class SimpleArray extends CsvConverter {
+import static Toolbox.csv_Methodes.CsvConverter.adjustCsvStringList;
+
+public class SimpleArray {
 
     public static String[][] arrayListTo2dArray(List<String[]> arrayList) {
         String[][] doubleArray = getSizeOf2dArray(arrayList);

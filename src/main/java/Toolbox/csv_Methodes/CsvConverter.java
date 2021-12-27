@@ -1,12 +1,16 @@
 package Toolbox.csv_Methodes;
 
 import au.com.bytecode.opencsv.CSVReader;
+import net.sf.jasperreports.components.table.Column;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import static Toolbox.arrayConverter.SimpleArray.arrayListTo2dArray;
 import static Toolbox.print.PrinterFactory.deleteBracketsInside1dArray;
@@ -55,12 +59,22 @@ public class CsvConverter {
         return arrayListTo2dArray(strings);
     }
 
-    protected static void adjustCsvStringList(List<String[]> data, String[][] doubleArray) {
+    public static void adjustCsvStringList(List<String[]> data, String[][] doubleArray) {
         for (int i = 0; i < data.size(); i++) {
             String[] strings = deleteBracketsInside1dArray(data.get(i));
             for (int k = 0; k < strings.length; k++) {
                 doubleArray[i][k] = strings[k];
             }
         }
+    }
+
+    public static Map<String, String> mapTwoCsvColumn(List<String[]> list, int columnA, int columnB){
+        Map<String,String> map = new HashMap<>();
+        String[][] strings = arrayListTo2dArray(list);
+        for (int i = 0; i < strings.length; i++) {
+            map.put(strings[i][columnA],strings[i][columnB]);
+        }
+        return map;
+
     }
 }

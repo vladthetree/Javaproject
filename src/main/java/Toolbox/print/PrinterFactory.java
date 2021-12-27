@@ -2,6 +2,7 @@ package Toolbox.print;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import static Toolbox.arrayConverter.SimpleArray.arrayListTo2dArray;
 import static Toolbox.csv_Methodes.CsvConverter.csvToStringArrayList;
@@ -18,9 +19,15 @@ public class PrinterFactory {
         }
     }
 
-    public static void printCSV(String path) {
+    public static void printCsv(String path) {
         List<String[]> strings = csvToStringArrayList(path);
         printStringArrayList(strings);
+    }
+
+    public static void prettyPringMap(Map<String,String> map){
+        for (Map.Entry<String, String> stringMap : map.entrySet()) {
+            System.out.println(stringMap.getKey()+"/"+stringMap.getValue());
+        }
     }
 
     public static String[] deleteBracketsInside1dArray(String[] array) {
