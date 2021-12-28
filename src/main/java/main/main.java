@@ -1,6 +1,7 @@
 package main;
 
 
+import DB.MongoConnection;
 import Toolbox.csv_Methodes.CsvConverter;
 import Toolbox.json_Methodes.JsonConverter;
 import Toolbox.json_Methodes.JsonCreator;
@@ -24,8 +25,9 @@ public class main {
         JSONObject jsonObject = JsonCreator.stringMaptoJsonObject(stringStringMap);
         Document bsonFile = JsonConverter.jsonToBson(jsonObject);
 
-//        MongoCollection col = MongoConnection.getCollectionFromDatabase("uat", "bsonObject");
+        MongoCollection col = MongoConnection.getCollectionFromDatabase("uat", "bsonObject");
 //        col.insertOne(bsonFile);
+        //col.deleteMany(bsonFile);
 
     }
 }
