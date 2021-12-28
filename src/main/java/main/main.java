@@ -1,7 +1,7 @@
 package main;
 
 
-import DB.MongoConnection;
+import DB.Mongo.MongoConnection;
 import Toolbox.csv_Methodes.CsvConverter;
 import Toolbox.json_Methodes.JsonConverter;
 import Toolbox.json_Methodes.JsonCreator;
@@ -22,12 +22,18 @@ public class main {
 
         List<String[]> strings = CsvConverter.csvToStringArrayList(path).stream().skip(3).toList();
         Map<String, String> stringStringMap = CsvConverter.mapTwoCsvColumn(strings, 1, 3);
-        JSONObject jsonObject = JsonCreator.stringMaptoJsonObject(stringStringMap);
-        Document bsonFile = JsonConverter.jsonToBson(jsonObject);
+//        JSONObject jsonObject = JsonCreator.stringMaptoJsonObject(stringStringMap);
+        JSONObject jsonObject1 = new JSONObject();
+        jsonObject1.put("name","test1");
+        jsonObject1.put("id","123");
+        jsonObject1.put("map",stringStringMap); // TODO DAS ALS METHODE UMSETZEN
+
+
+        Document bsonFile = JsonConverter.jsonToBson(jsonObject1);
 
         MongoCollection col = MongoConnection.getCollectionFromDatabase("uat", "bsonObject");
         col.insertOne(bsonFile);
-//        col.deleteMany(bsonFile);
+
 
     }
 }
