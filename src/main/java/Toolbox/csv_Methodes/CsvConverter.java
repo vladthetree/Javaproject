@@ -6,14 +6,14 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import static Toolbox.arrayConverter.ArrayList.arrayListTo2dArray;
-import static Toolbox.print.PrintFactory.replaceBracketsInside1dArray;
 
-public class CsvConverter {
+ public class CsvConverter {
 
     public static Reader getPathReader(String path) {
         Reader reader = null;
@@ -74,5 +74,10 @@ public class CsvConverter {
         }
         return map;
 
+    }
+
+    private static String[] replaceBracketsInside1dArray(String[] array) {
+        String s = Arrays.toString(array);
+        return s.substring(1, s.length() - 1).split(";");
     }
 }

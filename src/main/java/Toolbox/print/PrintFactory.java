@@ -42,10 +42,4 @@ public class PrintFactory {
         }
         System.out.println("--JsonObject has " + counter + " pairs.--");
     }
-
-    public static String[] replaceBracketsInside1dArray(String[] array) {
-        String s = Arrays.toString(array);
-        return s.substring(1, s.length() - 1).split(";");
-    }
-
 }
