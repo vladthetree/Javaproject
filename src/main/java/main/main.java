@@ -26,8 +26,8 @@ public class main {
         Document bsonFile = JsonConverter.jsonToBson(jsonObject);
 
         MongoCollection col = MongoConnection.getCollectionFromDatabase("uat", "bsonObject");
-//        col.insertOne(bsonFile);
-        //col.deleteMany(bsonFile);
+        col.insertOne(bsonFile);
+//        col.deleteMany(bsonFile);
 
     }
 }
