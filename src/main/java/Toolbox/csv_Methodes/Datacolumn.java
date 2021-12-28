@@ -4,7 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
-import static Toolbox.arrayConverter.SimpleArray.arrayListTo2dArray;
+
+import static Toolbox.arrayConverter.ArrayList.arrayListTo2dArray;
 
 
 public class Datacolumn {

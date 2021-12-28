@@ -1,11 +1,12 @@
 package main;
 
 import Toolbox.csv_Methodes.CsvConverter;
-import Toolbox.print.PrinterFactory;
+import Toolbox.json_Methodes.JsonCreator;
+import Toolbox.print.PrintFactory;
+import org.json.simple.JSONObject;
 
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 
 public class main {
@@ -15,7 +16,7 @@ public class main {
         List<String[]> strings = CsvConverter.csvToStringArrayList(path).stream().skip(3).toList();
         Map<String, String> stringStringMap = CsvConverter.mapTwoCsvColumn(strings, 1, 3);
 
-        PrinterFactory.prettyPringMap(stringStringMap);
-
+        JSONObject jsonObject = JsonCreator.stringMaptoJsonObject(stringStringMap);
+        PrintFactory.prettyPrintJson(jsonObject);
     }
 }
