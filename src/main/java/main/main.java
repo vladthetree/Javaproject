@@ -8,11 +8,12 @@ import Toolbox.json_Methodes.JsonCreator;
 import com.mongodb.client.MongoCollection;
 import org.bson.Document;
 import org.json.simple.JSONObject;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 import java.util.List;
 import java.util.Map;
 
-
+@EnableMongoRepositories(basePackages = "DB.Mongo.Configuration")
 public class main {
 
 
@@ -20,7 +21,7 @@ public class main {
 
         String path = "C://Users//vlady//Documents//TestFiles//A//TextCSV.csv";
 
-        List<String[]> strings = CsvConverter.csvToStringArrayList(path).stream().skip(3).toList();
+        List<String[]> strings = CsvConverter.csvToStringArrayList(path).stream().skip(4).toList();
         Map<String, String> stringStringMap = CsvConverter.mapTwoCsvColumn(strings, 1, 3);
 //        JSONObject jsonObject = JsonCreator.stringMaptoJsonObject(stringStringMap);
         JSONObject jsonObject1 = new JSONObject();
@@ -33,6 +34,8 @@ public class main {
 
         MongoCollection col = MongoConnection.getCollectionFromDatabase("uat", "bsonObject");
         col.insertOne(bsonFile);
+
+
 
 
     }
