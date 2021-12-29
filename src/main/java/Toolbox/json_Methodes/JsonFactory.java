@@ -12,7 +12,7 @@ public class JsonFactory {
         Map<String, String> linkedHashMap = new LinkedHashMap<>(amount);
 
         for (int i = 0; i < amount; i++) {
-            linkedHashMap.put("name_" + (i+1) + "_" + declaration, "value_" + (i+1) + "_" + declaration); // i wird iteriert weil, lHashmap unique ist
+            linkedHashMap.put("name_" + (i + 1) + "_" + declaration, "value_" + (i + 1) + "_" + declaration); // i wird iteriert weil, lHashmap unique ist
         }
         JSONArray jsonArray = new JSONArray();
         jsonArray.add(linkedHashMap);

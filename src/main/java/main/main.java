@@ -4,7 +4,6 @@ package main;
 import DB.Mongo.MongoConnection;
 import Toolbox.csv_Methodes.CsvConverter;
 import Toolbox.json_Methodes.JsonConverter;
-import Toolbox.json_Methodes.JsonCreator;
 import com.mongodb.client.MongoCollection;
 import org.bson.Document;
 import org.json.simple.JSONObject;
@@ -25,17 +24,15 @@ public class main {
         Map<String, String> stringStringMap = CsvConverter.mapTwoCsvColumn(strings, 1, 3);
 //        JSONObject jsonObject = JsonCreator.stringMaptoJsonObject(stringStringMap);
         JSONObject jsonObject1 = new JSONObject();
-        jsonObject1.put("name","test1");
-        jsonObject1.put("id","123");
-        jsonObject1.put("map",stringStringMap); // TODO DAS ALS METHODE UMSETZEN
+        jsonObject1.put("name", "test1");
+        jsonObject1.put("id", "123");
+        jsonObject1.put("map", stringStringMap); // TODO DAS ALS METHODE UMSETZEN
 
 
         Document bsonFile = JsonConverter.jsonToBson(jsonObject1);
 
         MongoCollection col = MongoConnection.getCollectionFromDatabase("uat", "bsonObject");
         col.insertOne(bsonFile);
-
-
 
 
     }
