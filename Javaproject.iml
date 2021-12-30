@@ -14,6 +14,7 @@
       <configuration>
         <fileset id="fileset" name="application.context" removed="false">
           <file>file://$MODULE_DIR$/src/main/resources/mongoConfig.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/WEB-INF/mongo-config.xml</file>
         </fileset>
       </configuration>
     </facet>

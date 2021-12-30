@@ -1,13 +1,14 @@
 package main;
 
 
+import DB.Mongo.service.EmployeeServiceImpl;
 import Toolbox.csv_Methodes.CsvConverter;
 import java.util.List;
 import java.util.Map;
-import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
-@EnableMongoRepositories(basePackages = "DB.Mongo.Configuration")
 public class main {
+
+  EmployeeServiceImpl employeeServiceImpl;
 
 
   public static void main(String[] args) {
@@ -26,11 +27,6 @@ public class main {
 //
 //    MongoCollection col = MongoConnection.getCollectionFromDatabase("uat", "bsonObject");
 //    col.insertOne(bsonFile);
-
-
-
-    
-
 
 
 
